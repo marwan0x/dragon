@@ -7,14 +7,33 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Update the package list and install Kali's meta-packages for all tools
 RUN apt-get update && \
     apt-get upgrade -y && \
-    apt-get dist-upgrade -y && \
-    apt-get install -y kali-linux-headless && \
-    apt-get clean
+    apt-get dist-upgrade -y
 
-RUN apt-get install -y iputils-ping
-RUN apt-get install -y gobuster
-RUN apt-get install -y seclists
+RUN apt-get install -y \
+kali-linux-headless \
+iputils-ping \
+gobuster \
+seclists \
+jq
+
+RUN apt-get install -y \
+gospider \
+hakrawler \
+xsser \
+golang-go \
+--fix-missing
+
+COPY ./custom-tools/ /custom-tools/
+
+RUN custom-tools/evine.sh;\
+    custom-tools/rustscan.sh;\
+    custom-tools/sstimap.sh;\
+    custom-tools/waymore.sh;\
+    custom-tools/xsstrike.sh;
+
+  RUN rm -rf /custom-tools
+
+RUN apt-get autoremove -y && apt-get autoclean -y
 
 # Set the default command to launch zsh
 CMD ["zsh"]
-

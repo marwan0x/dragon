@@ -20,6 +20,7 @@ RUN apt-get install -y \
 gospider \
 hakrawler \
 xsser \
+subfinder
 golang-go \
 --fix-missing
 

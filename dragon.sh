@@ -2,8 +2,9 @@
 
 create_new_dragon(){
     docker run \
-        --rm --privileged --tty --interactive \
-        --net=host --name dragon --hostname dragon \
+        --rm --tty --interactive \
+        --net=host --dns='1.1.1.1' --name dragon --hostname dragon \
+        --cap-add=NET_ADMIN --device=/dev/net/tun \
         -v ~/Dragon:/Dragon \
         -v ~/Projects/dragon/.zshrc:/root/.zshrc \
         dragon:latest

@@ -17,7 +17,8 @@ RUN apt-get install -y \
 kali-linux-headless \
 iputils-ping \
 seclists \
-jq
+jq \
+--fix-missing
 
 RUN apt-get install -y \
 gospider \

@@ -3,10 +3,15 @@
 create_new_dragon(){
     docker run \
         --rm --tty --interactive \
-        --net=host --dns='1.1.1.1' --name dragon --hostname dragon \
+        --net=host --dns='8.8.8.8' --name dragon --hostname dragon \
         --cap-add=NET_ADMIN --device=/dev/net/tun \
         -v ~/Dragon:/Dragon \
-        -v ~/Projects/dragon/.zshrc:/root/.zshrc \
+        -v ~/Projects/dragon/.zshrc:/home/w1nt3r/.zshrc:ro \
+        -v ~/ObsidianNetwork:/ObsidianNetwork \
+        -v ~/.config/nvim:/home/w1nt3r/.config/nvim \
+        -v ~/.local/share/nvim:/home/w1nt3r/.local/share/nvim \
+        -v ~/.local/state/nvim:/home/w1nt3r/.local/state/nvim \
+        -v ~/.cache/nvim:/home/w1nt3r/.cache/nvim \
         dragon:latest
 }
 

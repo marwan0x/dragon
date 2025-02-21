@@ -258,3 +258,4 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 alias sstimap='/opt/SSTImap/sstimap.py'
 alias xsstrike='python /opt/XSStrike/xsstrike.py'
+alias vim='nvim'

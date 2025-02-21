@@ -1,1 +1,1 @@
-go install github.com/tomnomnom/waybackurls@latest
+go install github.com/tomnomnom/waybackurls@master
